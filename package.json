@@ -1,19 +1,16 @@
 {
-  "name": "server",
+  "name": "typescript_design_pattern",
   "version": "1.0.0",
-  "main": "index.js",
+  "description": "Estudo sobre padrões de projeto com typescript",
+  "main": "index.ts",
   "repository": "https://github.com/AmauriOliveira",
   "author": "Amauri Antonio de Oliveira <amauriibate32@hotmail.com>",
   "license": "MIT",
   "scripts": {
     "dev": "ts-node-dev src/server.ts"
   },
-
-  "dependencies": {
-    "express": "^4.17.1"
-  },
+  "dependencies": {},
   "devDependencies": {
-    "@types/express": "^4.17.8",
     "@typescript-eslint/eslint-plugin": "^4.4.1",
     "@typescript-eslint/parser": "^4.4.1",
     "eslint": "6.8.0",
