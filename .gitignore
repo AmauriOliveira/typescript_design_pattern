@@ -1,10 +1,10 @@
 .idea/
 .vscode/
 node_modules/
+yarn-error.log
 build/
 temp/
 
 tmp/*
 !tmp/.gitkeep
 
-list.txt
