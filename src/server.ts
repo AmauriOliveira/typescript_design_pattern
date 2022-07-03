@@ -1,9 +1,9 @@
-import express, { Response, Request } from 'express';
-
+import express from 'express';
 import cors from 'cors';
 import expressLayout from 'express-ejs-layouts';
 import path from 'path';
-import { After, Before } from './Behavioral/Strategy/index';
+
+import routes from './routes';
 
 const app = express();
 
@@ -15,10 +15,7 @@ app.use(expressLayout);
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
-app.get('/', (request: Request, response: Response) => response.render('index'));
-app.get('/strategy', (request: Request, response: Response) =>
-  response.render('strategy', { after: After(), before: Before() }),
-);
+app.use(routes);
 
 // eslint-disable-next-line no-console
 app.listen(process.env.PORT || '3000', () => console.log('🔥🚀'));

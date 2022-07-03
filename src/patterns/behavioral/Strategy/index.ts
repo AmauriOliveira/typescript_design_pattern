@@ -1,6 +1,6 @@
 /* eslint-disable no-console */
 
-import { DataTransferModel } from '../../shared/util';
+import { DataTransferModel } from '../../../shared/util';
 import BeforeElectronic from './before/electronic';
 import BeforeFurniture from './before/furniture';
 
