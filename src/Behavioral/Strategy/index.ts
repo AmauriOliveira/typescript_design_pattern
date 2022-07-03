@@ -1,33 +1,46 @@
 /* eslint-disable no-console */
 
 import { DataTransferModel } from '../../shared/util';
-import BeforeEletronico from './before/eletronico';
-import BeforeMovel from './before/movel';
+import BeforeElectronic from './before/electronic';
+import BeforeFurniture from './before/furniture';
 
-const pedidoEletronico = new BeforeEletronico();
-const pedidoMovel = new BeforeMovel();
+import AfterElectronic from './after/electronic';
+import AfterFurniture from './after/furniture';
+
+const beforeElectronic = new BeforeElectronic();
+const beforeFurniture = new BeforeFurniture();
+
+const afterElectronic = new AfterElectronic();
+const afterFurniture = new AfterFurniture();
 
 export function Before(): DataTransferModel {
-  pedidoEletronico.setValor(100);
-  pedidoMovel.setValor(100);
+  beforeElectronic.setValue(100);
+  beforeFurniture.setValue(100);
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  let movelExpresso: any;
+  let furnitureExpress: any;
 
   try {
-    movelExpresso = pedidoMovel.calculaValorFreteExpresso();
+    furnitureExpress = beforeFurniture.calculateExpressShipping();
   } catch (error) {
-    movelExpresso = error;
+    furnitureExpress = error;
   }
 
   return {
-    eletronicoComum: pedidoEletronico.calculaValorFreteComum(),
-    eletronicoExpresso: pedidoEletronico.calculaValorFreteExpresso(),
-    movelComum: pedidoMovel.calculaValorFreteComum(),
-    movelExpresso,
+    electronicCommon: beforeElectronic.calculateCommonShipping(),
+    electronicExpress: beforeElectronic.calculateExpressShipping(),
+    furnitureCommon: beforeElectronic.calculateCommonShipping(),
+    furnitureExpress,
   };
 }
 
 export function After(): DataTransferModel {
-  return {};
+  afterElectronic.setValue(100);
+  afterFurniture.setValue(100);
+  return {
+    electronicCommon: afterElectronic.calculateCommonShipping(),
+    electronicExpress: afterElectronic.calculateExpressShipping(),
+    furnitureCommon: afterElectronic.calculateCommonShipping(),
+    furnitureExpress: 0,
+  };
 }

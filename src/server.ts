@@ -11,7 +11,7 @@ app.use(express.json());
 app.use(express.json());
 app.use(cors());
 app.use(expressLayout);
-// o parâmetro do path é o nome da pasta onde estão as views, pode ser qualquer nome
+
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
