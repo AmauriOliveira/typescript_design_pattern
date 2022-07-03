@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Estudo sobre padrões de projeto com typescript",
   "main": "index.ts",
-  "repository": "https://github.com/AmauriOliveira",
+  "repository": "https://github.com/AmauriOliveira/typescript_design_pattern",
   "author": "Amauri Antonio de Oliveira <amauriibate32@hotmail.com>",
   "license": "MIT",
   "scripts": {
