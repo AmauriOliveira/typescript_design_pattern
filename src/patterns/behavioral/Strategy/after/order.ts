@@ -1,5 +1,13 @@
+import { ShippingStrategy } from './shippingStrategy ';
+
 export default abstract class Order {
   private value = 0;
+
+  private shipping: ShippingStrategy;
+
+  constructor(private shippingStrategy: ShippingStrategy) {
+    this.shipping = this.shippingStrategy;
+  }
 
   getValue(): number {
     return this.value;
@@ -9,7 +17,11 @@ export default abstract class Order {
     this.value = value;
   }
 
-  abstract calculateCommonShipping(): number;
+  setShipping(shipping: ShippingStrategy): void {
+    this.shipping = shipping;
+  }
 
-  abstract calculateExpressShipping(): number;
+  calculate(): number {
+    return this.shipping.calculateShipping(this.value);
+  }
 }

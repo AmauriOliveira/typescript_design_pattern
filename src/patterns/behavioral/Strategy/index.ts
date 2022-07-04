@@ -6,14 +6,13 @@ import BeforeFurniture from './before/furniture';
 
 import AfterElectronic from './after/electronic';
 import AfterFurniture from './after/furniture';
-
-const beforeElectronic = new BeforeElectronic();
-const beforeFurniture = new BeforeFurniture();
-
-const afterElectronic = new AfterElectronic();
-const afterFurniture = new AfterFurniture();
+import CommonShipping from './after/commonShipping';
+import ExpressShipping from './after/expressShipping';
 
 export function Before(): DataTransferModel {
+  const beforeElectronic = new BeforeElectronic();
+  const beforeFurniture = new BeforeFurniture();
+
   beforeElectronic.setValue(100);
   beforeFurniture.setValue(100);
 
@@ -35,12 +34,22 @@ export function Before(): DataTransferModel {
 }
 
 export function After(): DataTransferModel {
-  afterElectronic.setValue(100);
-  afterFurniture.setValue(100);
+  const commonShipping = new CommonShipping();
+  const expressShipping = new ExpressShipping();
+
+  const afterCommonElectronic = new AfterElectronic(commonShipping);
+  const afterExpressElectronic = new AfterElectronic(expressShipping);
+
+  const afterCommonFurniture = new AfterFurniture(commonShipping);
+
+  afterCommonElectronic.setValue(100);
+  afterExpressElectronic.setValue(100);
+
+  afterCommonFurniture.setValue(100);
+
   return {
-    electronicCommon: afterElectronic.calculateCommonShipping(),
-    electronicExpress: afterElectronic.calculateExpressShipping(),
-    furnitureCommon: afterElectronic.calculateCommonShipping(),
-    furnitureExpress: 0,
+    electronicCommon: afterCommonElectronic.calculate(),
+    electronicExpress: afterExpressElectronic.calculate(),
+    furnitureCommon: afterCommonFurniture.calculate(),
   };
 }
