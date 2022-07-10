@@ -7,7 +7,7 @@
   "author": "Amauri Antonio de Oliveira <amauriibate32@hotmail.com>",
   "license": "MIT",
   "scripts": {
-    "dev": "ts-node-dev src/server.ts"
+    "start": "ts-node-dev src/server.ts"
   },
   "dependencies": {
     "cors": "^2.8.5",
