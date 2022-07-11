@@ -9,10 +9,6 @@ export default abstract class Order {
     this.shipping = this.shippingStrategy;
   }
 
-  getValue(): number {
-    return this.value;
-  }
-
   setValue(value: number): void {
     this.value = value;
   }
