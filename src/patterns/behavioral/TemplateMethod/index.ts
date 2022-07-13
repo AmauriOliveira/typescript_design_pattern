@@ -1,11 +1,10 @@
 import { DataTransferModel } from '../../../shared/util';
-import BeforeCreditPayment from './before/creditPayment';
-import BeforeDebtPayment from './before/debtPayment';
-import BeforeMoneyPayment from './before/moneyPayment';
 import AfterCreditPayment from './after/creditPayment';
 import AfterDebtPayment from './after/debtPayment';
 import AfterMoneyPayment from './after/moneyPayment';
-
+import BeforeCreditPayment from './before/creditPayment';
+import BeforeDebtPayment from './before/debtPayment';
+import BeforeMoneyPayment from './before/moneyPayment';
 import Gateway from './gateway';
 
 const value = 1000;

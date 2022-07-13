@@ -1,13 +1,10 @@
-/* eslint-disable no-console */
-
 import { DataTransferModel } from '../../../shared/util';
+import CommonShipping from './after/commonShipping';
+import AfterElectronic from './after/electronic';
+import ExpressShipping from './after/expressShipping';
+import AfterFurniture from './after/furniture';
 import BeforeElectronic from './before/electronic';
 import BeforeFurniture from './before/furniture';
-
-import AfterElectronic from './after/electronic';
-import AfterFurniture from './after/furniture';
-import CommonShipping from './after/commonShipping';
-import ExpressShipping from './after/expressShipping';
 
 export function Before(): DataTransferModel {
   const beforeElectronic = new BeforeElectronic();
